@@ -1,0 +1,16 @@
+# iso vars
+iso_url = "{{ packer_build_ubuntu_iso_url }}"
+iso_checksum = "{{ packer_build_ubuntu_iso_checksum }}"
+ansible_ssh_public_key = "{{ ansible_ssh_public_key }}"
+output_directory = "./build"
+
+# vsphere configuration
+vsphere_vcenter_server = "{{ packer_build_vsphere_vcenter }}"
+vsphere_username = "{{ packer_build_vsphere_username }}"
+vsphere_password = "{{ packer_build_vsphere_password }}"
+vsphere_insecure_connection = "true"
+vsphere_datacenter = "{{ packer_build_vsphere_datacenter }}"
+vsphere_host = "{{ packer_build_vsphere_host }}"
+vsphere_network = "{{ packer_build_vsphere_network }}"
+vsphere_folder = "{{ packer_build_vsphere_folder }}"
+vsphere_datastore = "{{ packer_build_vsphere_datastore }}"

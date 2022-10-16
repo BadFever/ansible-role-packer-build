@@ -1,0 +1,13 @@
+---
+- name: Clone repository
+  ansible.builtin.git:
+    repo: "https://github.com/BadFever/packer-image-ubuntu.git"
+    dest: "{{ build_directory }}"
+    clone: yes
+    version: devel
+
+- name: Prepare pkrvars.hcl
+  ansible.builtin.template:
+    src: "windows-vsphere-iso.pkrvars.hcl.j2"
+    dest: "{{ build_directory }}/build.pkrvars.hcl"
+    owner: ansible

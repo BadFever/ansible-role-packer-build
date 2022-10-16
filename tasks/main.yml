@@ -1,0 +1,37 @@
+---
+- name: Generate build uuid
+  ansible.builtin.set_fact:
+    build_uuid: "{{ 1000 | random | to_uuid | upper }}"
+
+- name: Define build directory
+  ansible.builtin.set_fact:
+    build_directory: "{{ packer_build_path }}/packer-{{ build_uuid }}"
+
+- name: Create build directory
+  ansible.builtin.file:
+    path: "{{ build_directory }}"
+    state: directory
+
+- include_tasks: build-ubuntu.yml
+  when: packer_build_os == 'ubuntu'
+
+- include_tasks: build-windows.yml
+  when: packer_build_os == 'windows'
+
+- name: Execute packer build
+  ansible.builtin.command: 
+    cmd: "packer build --var-file=build.pkrvars.hcl ."
+    chdir: "{{ build_directory }}"
+  environment:
+    PACKER_LOG: 1
+    PACKER_LOG_PATH: "./packer-{{ build_uuid }}.log"
+  register: build_result
+
+- name: Debug build result
+  ansible.builtin.debug:
+    msg: "{{ build_result.stdout_lines }}"
+
+- name: Delete build artifacts
+  ansible.builtin.file:
+    path: "{{ packer_build_path }}/packer-{{ build_uuid }}"
+    state: absent

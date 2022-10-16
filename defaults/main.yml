@@ -1,0 +1,40 @@
+---
+# Either "ubuntu", "Windows Server 2019"
+packer_build_os: "ubuntu"
+
+# Path on build machine to execute the build in.
+packer_build_path: "./build"
+
+# If empty default template will be used
+packer_build_var_file: ""
+
+## VMware vSphere build variables
+packer_build_vsphere_vcenter: ""
+packer_build_vsphere_username: ""
+packer_build_vsphere_password: ""
+packer_build_vsphere_host: ""
+packer_build_vsphere_datastore: ""
+packer_build_vsphere_network: ""
+packer_build_vsphere_folder: ""
+packer_build_vsphere_insecure_connection: true
+
+
+## Packer build github repositories
+packer_build_git_repo_ubuntu: "https://github.com/BadFever/packer-image-ubuntu.git"
+packer_build_git_repo_windows: "https://github.com/BadFever/packer-image-wins.git"
+
+# General build vars
+packer_build_path: "./build"
+
+## OS specific build variables
+packer_build_ubuntu_iso_url: "https://releases.ubuntu.com/focal/ubuntu-20.04.5-live-server-amd64.iso"
+packer_build_ubuntu_iso_checksum: "file:https://releases.ubuntu.com/focal/SHA256SUMS"
+packer_build_windows_iso_url: ""
+packer_build__windows_iso_checksum: ""
+
+## Ubuntu build related vars
+ansible_ssh_public_key: ""
+
+## Windows build related vars
+
+## VM configuration vars
