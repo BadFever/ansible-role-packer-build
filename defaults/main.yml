@@ -1,6 +1,9 @@
 ---
 # Either "ubuntu", "Windows Server 2019"
 packer_build_os: "ubuntu"
+packer_builder: "vsphere-iso"
+packer_build: "ubuntu-template"
+packer_build_path: "./build"
 
 # Path on build machine to execute the build in.
 packer_build_path: "./build"
@@ -18,13 +21,11 @@ packer_build_vsphere_network: ""
 packer_build_vsphere_folder: ""
 packer_build_vsphere_insecure_connection: true
 
-
 ## Packer build github repositories
 packer_build_git_repo_ubuntu: "https://github.com/BadFever/packer-image-ubuntu.git"
 packer_build_git_repo_windows: "https://github.com/BadFever/packer-image-wins.git"
 
-# General build vars
-packer_build_path: "./build"
+
 
 ## OS specific build variables
 packer_build_ubuntu_iso_url: "https://releases.ubuntu.com/focal/ubuntu-20.04.5-live-server-amd64.iso"

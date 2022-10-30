@@ -20,7 +20,7 @@
 
 - name: Execute packer build
   ansible.builtin.command: 
-    cmd: "packer build --var-file=build.pkrvars.hcl ."
+    cmd: "packer build --var-file=build.pkrvars.hcl --only={{ packer_builder }}.{{ packer_build }}"
     chdir: "{{ build_directory }}"
   environment:
     PACKER_LOG: 1
