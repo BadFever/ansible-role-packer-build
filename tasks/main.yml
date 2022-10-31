@@ -20,11 +20,11 @@
 
 - name: Debug build command
   debug:
-    msg: "packer build --var-file=build.pkrvars.hcl --only={{ packer_builder }}.{{ packer_build }}"
+    msg: "packer build --var-file=build.pkrvars.hcl --only={{ packer_builder }}.{{ packer_build }} ."
 
 - name: Execute packer build
   ansible.builtin.command: 
-    cmd: "packer build --var-file=build.pkrvars.hcl --only={{ packer_builder }}.{{ packer_build }}"
+    cmd: "packer build --var-file=build.pkrvars.hcl --only={{ packer_builder }}.{{ packer_build }} ."
     chdir: "{{ build_directory }}"
   environment:
     PACKER_LOG: "1"
