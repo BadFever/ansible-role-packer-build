@@ -5,9 +5,6 @@ packer_builder: "vsphere-iso"
 packer_build: "ubuntu-template"
 packer_build_path: "./build"
 
-# Path on build machine to execute the build in.
-packer_build_path: "./build"
-
 # If empty default template will be used
 packer_build_var_file: ""
 
@@ -16,6 +13,7 @@ packer_build_vsphere_vcenter: ""
 packer_build_vsphere_username: ""
 packer_build_vsphere_password: ""
 packer_build_vsphere_host: ""
+packer_build_vsphere_datacenter: ""
 packer_build_vsphere_datastore: ""
 packer_build_vsphere_network: ""
 packer_build_vsphere_folder: ""
