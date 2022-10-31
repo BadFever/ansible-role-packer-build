@@ -18,12 +18,16 @@
 - include_tasks: build-windows.yml
   when: packer_build_os == 'windows'
 
+- name: Debug build command
+  debug:
+    msg: "packer build --var-file=build.pkrvars.hcl --only={{ packer_builder }}.{{ packer_build }}"
+
 - name: Execute packer build
   ansible.builtin.command: 
     cmd: "packer build --var-file=build.pkrvars.hcl --only={{ packer_builder }}.{{ packer_build }}"
     chdir: "{{ build_directory }}"
   environment:
-    PACKER_LOG: 1
+    PACKER_LOG: "1"
     PACKER_LOG_PATH: "./packer-{{ build_uuid }}.log"
   register: build_result
 
