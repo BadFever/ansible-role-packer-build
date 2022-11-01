@@ -12,10 +12,10 @@
     path: "{{ build_directory }}"
     state: directory
 
-- include_tasks: build-ubuntu.yml
+- include_tasks: build_ubuntu.yml
   when: packer_build_os == 'ubuntu'
 
-- include_tasks: build-windows.yml
+- include_tasks: build_windows.yml
   when: packer_build_os == 'windows'
 
 - name: Debug build command
