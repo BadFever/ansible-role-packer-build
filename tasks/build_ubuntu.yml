@@ -10,4 +10,3 @@
   ansible.builtin.template:
     src: "ubuntu-vsphere-iso.pkrvars.hcl.j2"
     dest: "{{ build_directory }}/build.pkrvars.hcl"
-    owner: ansible
