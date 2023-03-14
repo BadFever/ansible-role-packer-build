@@ -4,6 +4,7 @@ packer_build_os: "ubuntu"
 packer_builder: "vsphere-iso"
 packer_build: "ubuntu-template"
 packer_build_path: "./build"
+packer_build_branch: "devel"
 
 # If empty default template will be used
 packer_build_var_file: ""
@@ -22,8 +23,6 @@ packer_build_vsphere_insecure_connection: true
 ## Packer build github repositories
 packer_build_git_repo_ubuntu: "https://github.com/BadFever/packer-image-ubuntu.git"
 packer_build_git_repo_windows: "https://github.com/BadFever/packer-image-wins.git"
-
-
 
 ## OS specific build variables
 packer_build_ubuntu_iso_url: "https://releases.ubuntu.com/focal/ubuntu-20.04.5-live-server-amd64.iso"

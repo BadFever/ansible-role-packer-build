@@ -4,7 +4,7 @@
     repo: "https://github.com/BadFever/packer-image-ubuntu.git"
     dest: "{{ build_directory }}"
     clone: yes
-    version: devel
+    version: "{{ packer_build_branch }}"
 
 - name: Prepare pkrvars.hcl
   ansible.builtin.template:

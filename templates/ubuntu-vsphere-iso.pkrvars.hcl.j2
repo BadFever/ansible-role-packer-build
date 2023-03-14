@@ -14,3 +14,7 @@ vsphere_host = "{{ packer_build_vsphere_host }}"
 vsphere_network = "{{ packer_build_vsphere_network }}"
 vsphere_folder = "{{ packer_build_vsphere_folder }}"
 vsphere_datastore = "{{ packer_build_vsphere_datastore }}"
+
+# GUEST CONFIGURATION
+ansible_ssh_public_key = "{{ packer_build_ansible_ssh_public_key }}"
+vm_role = "{{ packer_build_vm_role }}"
